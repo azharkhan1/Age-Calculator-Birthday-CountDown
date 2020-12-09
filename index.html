@@ -25,13 +25,15 @@
             <div>
                 <p>
                     <b>Instructions:</b>
-                    You have to put two number's in input and as of result 
+                    You have to put four number's in both input fields and as of result 
                     the result will always be <b>19998</b>.
                 </p>
             
-              <label for="">1st Number</label>  <input required id="num1"  minlength="4" type="number" maxlength="4" placeholder="enter first number">
+              <label>1st Number</label> 
+               <input minlength="4" maxlength="4" id="num1"  type="number" placeholder="enter first number" required>
                 <br>
-                <label for="">2nd Number</label> <input required id="num2" minlength="4" maxlength="4" minimum placeholder="enter second number"> 
+                <label>2nd Number</label> 
+                <input  id="num2" minlength="4" maxlength="4" type="number" minimum placeholder="enter second number" required> 
                <br>
                 <button>Check</button>
             </div>
@@ -81,7 +83,7 @@
             <form  onsubmit="return countDown()">
             <h3>Birthday Countdown</h3>
           <label>Enter Date Of Birth</label>  
-          <input  type="date" id="dateof">
+          <input required type="date" id="countdob">
             <button>
                 Check
             </button>

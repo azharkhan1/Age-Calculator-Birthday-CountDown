@@ -1,8 +1,8 @@
 const countDown = ()=>{
 
-    var countdob = document.getElementById("countdob")
+    var countdob = document.getElementById("countdob").value
 
-    var dob = new Date ("7 july,1997");
+    var dob = new Date (countdob);
     var latestTime = new Date();
     latestTimeYear = latestTime.getFullYear();
     dobYear = dob.getFullYear();
@@ -79,6 +79,3 @@ document.getElementById("yourage").innerHTML = ` <b>Age</b>: ${myDob} <br> <b>Mo
             console.log(num1,"num2==>",num2)
             return false;
         }
-
-
-
