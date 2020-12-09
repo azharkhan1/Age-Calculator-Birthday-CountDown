@@ -1,3 +1,5 @@
+
+
 const countDown = ()=>{
 
     var countdob = document.getElementById("countdob").value
@@ -53,14 +55,6 @@ document.getElementById("yourage").innerHTML = ` <b>Age</b>: ${myDob} <br> <b>Mo
    return false;
 }
 
-
-
-
-
-
-
-
-
                   
                   var sum = 0;
         const startGame=()=>{
@@ -69,7 +63,7 @@ document.getElementById("yourage").innerHTML = ` <b>Age</b>: ${myDob} <br> <b>Mo
         
             document.getElementById("firstValue").innerHTML = `Your first turn : ${num1}`
             document.getElementById("computerTurn").innerHTML = `Computer's first Turn = ${9999-num1}`
-            document.getElementById("secondValue").innerHTML = `Your second turn : ${num1}`
+            document.getElementById("secondValue").innerHTML = `Your second turn : ${num2}`
             document.getElementById("computer2Turn").innerHTML = `Computer's second Turn = ${9999-num2}`
             num1 = (9999-num1) + (num1);
             num2 =  (9999-num2) + (num2);
