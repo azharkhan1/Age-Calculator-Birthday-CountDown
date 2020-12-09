@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plus Game</title>
+    <style>
+        .mainBody{
+                text-align:center;
+                margin: 30px auto;
+                width:400px;
+                height: auto;
+                font-family:monospace;
+        }
+        input{
+                margin:5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mainBody">
+        <div >
+        <form onsubmit="return startGame()">
+            <div>
+                <p>
+                    <b>Instructions:</b>
+                    You have to put two number's in input and as of result 
+                    the result will always be <b>19998</b>.
+                </p>
+            
+              <label for="">1st Number</label>  <input required id="num1"  minlength="4" type="number" maxlength="4" placeholder="enter first number">
+                <br>
+                <label for="">2nd Number</label> <input required id="num2" minlength="4" maxlength="4" minimum placeholder="enter second number"> 
+               <br>
+                <button>Check</button>
+            </div>
+        </form>
+        </div>
+        <p id="firstValue">
+
+        </p>
+        <p id="computerTurn">
+
+        </p>
+
+        <p id="secondValue">
+
+        </p>
+        <p id="computer2Turn">
+
+        </p>
+        <hr>
+        <h3 id="result">
+            
+        </h3>
+    </div>
+
+    <div class="mainBody">
+        <div>
+            <form onsubmit="return ageChecker()">
+            <h3>DATE OF BIRTH CALCULATOR</h3>
+          <label>Enter Date Of Birth</label>  
+          <input required type="date" id="dateof">
+            <button>
+                Check
+            </button>
+
+            <p id="yourage">
+
+            </p>
+        </form>
+        </div>
+
+<hr>
+    </div>
+
+
+    <div class="mainBody">
+        <div>
+            <form  onsubmit="return countDown()">
+            <h3>Birthday Countdown</h3>
+          <label>Enter Date Of Birth</label>  
+          <input  type="date" id="dateof">
+            <button>
+                Check
+            </button>
+
+            <p id="coutdown">
+
+            </p>
+        </form>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+
+
+const countDown = ()=>{
+
+    var countdob = document.getElementById("countdob")
+
+    var dob = new Date ("7 july,1997");
+    var latestTime = new Date();
+    latestTimeYear = latestTime.getFullYear();
+    dobYear = dob.getFullYear();
+    latestTimeYear = latestTimeYear - dobYear;
+    dob.setFullYear(dob.getFullYear() + latestTimeYear + 1);
+    console.log(dob);
+
+var currentDate = new Date();
+var msdob = dob.getTime();
+var msCurrentDate = currentDate.getTime();
+var msDiff = msCurrentDate - msdob;
+var daysRemaining = Math.floor(msDiff / (1000*60*60*24));
+var hoursRemaining = Math.floor(msDiff / (1000*60*60));
+var minutesRemaining = Math.floor(msDiff / (1000*60));
+var secondsRemaining = Math.floor(msDiff / (1000));
+document.getElementById("coutdown").innerHTML = `Days:${daysRemaining}<br> Hours:${hoursRemaining} <br> Minutes:${minutesRemaining} <br> Seconds:${secondsRemaining}`
+
+return false;
+
+}
+
+
+const ageChecker = ()=>{
+
+    setInterval(function(){
+        var dob = document.getElementById("dob").value;
+
+var date  = new Date(dob);
+//    var date  = new Date("4 april,1994");
+ var timeFixing = new Date();
+
+var  fixingMili = timeFixing.getTime();
+
+ dateMili = date.getTime();
+ 
+ diff = fixingMili - dateMili; 
+
+ myDob = Math.floor (diff/(1000*60*60*24*30*12));
+ month = Math.floor (diff/(1000*60*60*24*30));
+ days = Math.floor (diff/(1000*60*60*24));
+ hours = Math.floor (diff/(1000*60*60));
+ minutes = Math.floor (diff/(1000*60));
+ seconds = Math.floor (diff/(1000));
+ smallest = Math.floor (diff);
+document.getElementById("yourage").innerHTML = ` <b>Age</b>: ${myDob} <br> <b>Month:</b>:${month} <br> <b>Days:</b>:${days} <br>  <b>Hours:</b>:${hours} <br> <b>Minutes:</b>:${minutes} <br> <b>Seconds:</b>:${seconds} <br> <b>Milliseconds:</b> ${smallest}`
+
+    },1000)
+   return false;
+}
+
+
+
+
+
+
+
+
+
+                  
+                  var sum = 0;
+        const startGame=()=>{
+            var num1 = parseInt(document.getElementById("num1").value);
+            var num2 = parseInt(document.getElementById("num2").value);
+        
+            document.getElementById("firstValue").innerHTML = `Your first turn : ${num1}`
+            document.getElementById("computerTurn").innerHTML = `Computer's first Turn = ${9999-num1}`
+            document.getElementById("secondValue").innerHTML = `Your second turn : ${num1}`
+            document.getElementById("computer2Turn").innerHTML = `Computer's second Turn = ${9999-num2}`
+            num1 = (9999-num1) + (num1);
+            num2 =  (9999-num2) + (num2);
+            num2 = num2+num1;
+
+            document.getElementById("result").innerHTML = `Result is ${num2}`;
+            console.log(num1,"num2==>",num2)
+            return false;
+        }
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
