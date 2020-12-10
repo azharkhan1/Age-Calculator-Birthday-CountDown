@@ -15,12 +15,13 @@ const countDown = ()=>{
 var currentDate = new Date();
 var msdob = dob.getTime();
 var msCurrentDate = currentDate.getTime();
-var msDiff = msCurrentDate - msdob;
+var msDiff = (msCurrentDate - msdob) * -1;
+var monthsRemaining = Math.floor(msDiff / (1000*60*60*24*30));
 var daysRemaining = Math.floor(msDiff / (1000*60*60*24));
 var hoursRemaining = Math.floor(msDiff / (1000*60*60));
 var minutesRemaining = Math.floor(msDiff / (1000*60));
 var secondsRemaining = Math.floor(msDiff / (1000));
-document.getElementById("coutdown").innerHTML = `Days:${daysRemaining}<br> Hours:${hoursRemaining} <br> Minutes:${minutesRemaining} <br> Seconds:${secondsRemaining}`
+document.getElementById("coutdown").innerHTML = `Months:${monthsRemaining} <br> Days:${daysRemaining}<br> Hours:${hoursRemaining} <br> Minutes:${minutesRemaining} <br> Seconds:${secondsRemaining} `
 
 return false;
 
@@ -68,7 +69,6 @@ document.getElementById("yourage").innerHTML = ` <b>Age</b>: ${myDob} <br> <b>Mo
             num1 = (9999-num1) + (num1);
             num2 =  (9999-num2) + (num2);
             num2 = num2+num1;
-
             document.getElementById("result").innerHTML = `Result is ${num2}`;
             console.log(num1,"num2==>",num2)
             return false;
